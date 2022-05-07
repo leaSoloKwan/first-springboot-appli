@@ -37,6 +37,11 @@ public class TodoController {
 		model.put("todos", service.retrieveTodos((String) model.get("name")));
 		return "redirect:/list-todos";//sinon url rest /add-todo avec la page llst_todos
 	}
+	@RequestMapping(value="/delete-todo",method=RequestMethod.GET)
+	public String deleteTodo(@RequestParam int id) {
+		service.deleteTodo(id);
+		return "redirect:/list-todos";
+	}
 
 	
 
