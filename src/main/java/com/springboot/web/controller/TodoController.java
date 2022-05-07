@@ -35,7 +35,7 @@ public class TodoController {
 	public String AddTodo(ModelMap model,@RequestParam String desc) {
 		service.addTodo((String)model.get("name"), desc, new Date(), false);
 		model.put("todos", service.retrieveTodos((String) model.get("name")));
-		return "redirect:/list-todos";
+		return "redirect:/list-todos";//sinon url rest /add-todo avec la page llst_todos
 	}
 
 	
