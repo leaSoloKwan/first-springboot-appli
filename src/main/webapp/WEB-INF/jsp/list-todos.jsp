@@ -6,7 +6,8 @@
 
 <body>
 	Here the list of your todos :
-	${todos}
+	${todos} <br>
+	Your name is : ${name}
 </body>
 
 </html>
