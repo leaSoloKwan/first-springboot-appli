@@ -1,0 +1,11 @@
+	<nav role="navigation" class="navbar navbar-expand-lg navbar-light bg-light">
+		<a href="#" class="navbar-brand">FirstTodoApp</a>
+	
+		<div class="navbar-collapse">
+		 <div class="navbar-nav">
+      		<a class="nav-item nav-link active" href="/login">Home</a>
+      		<a class="nav-item nav-link" href="/list-todos">Todos</a>
+     		
+    	 </div>
+		</div>
+	</nav>
