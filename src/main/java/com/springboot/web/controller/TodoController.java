@@ -36,14 +36,18 @@ public class TodoController {
 	
 	@RequestMapping(value="/list-todos",method=RequestMethod.GET)
 	public String showTodoList(ModelMap model) {
-		String name_s = (String) model.get("name");
+		String name_s = getLoggedInUserName(model);
 		model.put("todos", service.retrieveTodos(name_s));
 		return "list-todos";
+	}
+
+	private String getLoggedInUserName(ModelMap model) {
+		return (String) model.get("name");
 	}
 	
 	@RequestMapping(value="/add-todo",method=RequestMethod.GET)
 	public String showAddTodoPage(ModelMap model) {
-		model.addAttribute("todo",new Todo(0, (String) model.get("name"), "", new Date(), false));
+		model.addAttribute("todo",new Todo(0, getLoggedInUserName(model), "", new Date(), false));
 		return "todo";
 	}
 	
@@ -54,8 +58,8 @@ public class TodoController {
 		if(result.hasErrors()){
 			return "todo"; // remain same page
 		}
-		service.addTodo((String)model.get("name"), todo.getDesc(), todo.getTargetDate(), false);
-		model.put("todos", service.retrieveTodos((String) model.get("name")));
+		service.addTodo(getLoggedInUserName(model), todo.getDesc(), todo.getTargetDate(), false);
+		model.put("todos", service.retrieveTodos(getLoggedInUserName(model)));
 		return "redirect:/list-todos";//sinon url rest /add-todo avec la page llst_todos
 	}
 	@RequestMapping(value="/delete-todo",method=RequestMethod.GET)
@@ -79,7 +83,7 @@ public class TodoController {
 			return "todo"; // remain same page
 		}
 		//recup l'id dans le form jsp mais il manque encore le user qui dans session
-		todo.setUser((String) model.get("name")); 
+		todo.setUser(getLoggedInUserName(model)); 
 		service.updateTodo(todo);
 		return "redirect:/list-todos";
 	}

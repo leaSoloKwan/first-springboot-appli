@@ -3,7 +3,7 @@
 	
 		<div class="navbar-collapse">
 		 <div class="navbar-nav">
-      		<a class="nav-item nav-link active" href="/login">Home</a>
+      		<a class="nav-item nav-link active" href="/">Home</a>
       		<a class="nav-item nav-link" href="/list-todos">Todos</a>
      		
     	 </div>
