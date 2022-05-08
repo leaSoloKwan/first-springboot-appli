@@ -5,6 +5,7 @@
 		 <div class="navbar-nav">
       		<a class="nav-item nav-link active" href="/">Home</a>
       		<a class="nav-item nav-link" href="/list-todos">Todos</a>
+      		<a class="nav-item nav-link nav-right" href="/logout">Logout</a>
      		
     	 </div>
 		</div>
